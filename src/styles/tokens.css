@@ -1,0 +1,60 @@
+/* ==========================================================================
+   设计令牌 —— 全站唯一的颜色/间距/圆角/动效来源
+   任何组件禁止硬编码十六进制色值
+   ========================================================================== */
+:root {
+  /* 底色 */
+  --bg: #070b14;
+  --bg-soft: #0b1020;
+  --bg-elevated: #101728;
+
+  /* 面板（半透明，叠在星空之上） */
+  --panel: rgba(255, 255, 255, 0.04);
+  --panel-strong: rgba(255, 255, 255, 0.07);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  /* 文字 */
+  --text: #e6eaf2;
+  --text-dim: #8b96ad;
+  --text-faint: #5e6980;
+
+  /* 强调色（运行时由站点设置覆盖） */
+  --accent: #6d8cff;
+  --accent-2: #22d3ee;
+  --success: #34d399;
+  --danger: #f87171;
+  --warning: #fbbf24;
+
+  /* 尺寸 */
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+  --maxw: 1120px;
+  --nav-h: 64px;
+  --page-x: 24px;
+
+  /* 动效 */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --fast: 180ms;
+  --base: 320ms;
+  --slow: 600ms;
+
+  /* 阴影 */
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.25);
+  --shadow: 0 18px 50px -20px rgba(0, 0, 0, 0.75);
+
+  /* 字体 */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono',
+    Menlo, monospace;
+}
+
+@media (max-width: 640px) {
+  :root {
+    --page-x: 18px;
+    --nav-h: 58px;
+  }
+}
