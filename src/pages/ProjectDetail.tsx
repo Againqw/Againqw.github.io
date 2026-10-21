@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import { Markdown } from '../components/Markdown'
 import { useDB } from '../hooks/useDB'
 import { formatDate } from '../api'
-import { coverGradient } from './home/Projects'
+import { coverGradient } from '../lib/cover'
 
 export function ProjectDetail() {
   const { slug } = useParams()
