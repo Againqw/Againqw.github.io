@@ -15,6 +15,14 @@ export async function getChromium() {
   }
 }
 
+/** 本机系统代理指向一个未运行的本地端口，浏览器会被它拦成 ERR_CONNECTION_CLOSED，直接绕过 */
+export const chromiumArgs = ['--no-proxy-server', '--disable-backgrounding-occluded-windows', '--disable-renderer-backgrounding']
+
+if (process.env.PIN_DNS) {
+  // 形如 againqw.github.io:185.199.108.153，用于绕开被污染的 DNS
+  chromiumArgs.push(`--host-resolver-rules=MAP ${process.env.PIN_DNS}`)
+}
+
 export const chromePath =
   process.env.CHROME ||
   `${process.env.HOME}/AppData/Local/ms-playwright/chromium-1161/chrome-win/chrome.exe`

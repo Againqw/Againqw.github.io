@@ -1,5 +1,5 @@
 import { mkdirSync } from 'node:fs'
-import { getChromium, chromePath } from './browser.mjs'
+import { getChromium, chromePath, chromiumArgs } from './browser.mjs'
 
 const chromium = await getChromium()
 const base = process.env.BASE || 'http://127.0.0.1:5178'
@@ -7,10 +7,7 @@ const out = process.env.OUT || '_shots'
 const chrome = chromePath
 mkdirSync(out, { recursive: true })
 
-const browser = await chromium.launch({
-  executablePath: chrome,
-  args: ['--disable-backgrounding-occluded-windows', '--disable-renderer-backgrounding'],
-})
+const browser = await chromium.launch({ executablePath: chrome, args: chromiumArgs })
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 })
 const page = await ctx.newPage()
 

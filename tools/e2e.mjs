@@ -5,7 +5,7 @@
  * 运行：node tools/e2e.mjs
  */
 import { mkdirSync } from 'node:fs'
-import { getChromium, chromePath } from './browser.mjs'
+import { getChromium, chromePath, chromiumArgs } from './browser.mjs'
 
 const chromium = await getChromium()
 const base = process.env.BASE || 'http://127.0.0.1:5178'
@@ -20,7 +20,7 @@ const fail = (name, detail) => {
 }
 const assert = (cond, name, detail) => (cond ? pass(name) : fail(name, detail))
 
-const browser = await chromium.launch({ executablePath: chrome })
+const browser = await chromium.launch({ executablePath: chrome, args: chromiumArgs })
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } })
 const page = await ctx.newPage()
 const errors = []

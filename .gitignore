@@ -3,8 +3,9 @@ node_modules/
 dist/
 dist-ssr/
 
-# 本地截图与临时文件
+# 本地截图与临时文件（作业交付物不入库）
 _shots/
+deliverables/
 *.local
 
 # 编辑器
